@@ -1,0 +1,152 @@
+﻿///$tab Main
+SET ThousandSep=' ';
+SET DecimalSep=',';
+SET MoneyThousandSep='.';
+SET MoneyDecimalSep=',';
+SET MoneyFormat='#.##0,00 kr;-#.##0,00 kr';
+SET TimeFormat='hh:mm:ss';
+SET DateFormat='YYYY-MM-DD';
+SET TimestampFormat='YYYY-MM-DD hh:mm:ss[.fff]';
+SET MonthNames='jan;feb;mar;apr;maj;jun;jul;aug;sep;okt;nov;dec';
+SET DayNames='må;ti;on;to;fr;lö;sö';
+
+
+SET vSimulationIntervalMinutes = 3;
+///$tab Sessions
+//DIRECTORY C:\ProgramData\QlikTech\QlikViewServer;
+DIRECTORY .;
+
+let today = date(today());
+
+
+Sessions:
+LOAD *,
+	 AutoNumber(Användare) AS AnvändarID
+;
+LOAD 
+	 AutoNumberHash256([Session Start], Document, [Authenticated user]) AS SessionsId,
+	 [Exe Type], 
+     [Exe Version], 
+     [Server Started], 
+     Timestamp as Sessions.Timestamp, 
+     Document,
+	 subfield(subfield(Document, '\', -1), '.qvw', 1) AS Applikation,
+     [Document Timestamp], 
+     [QlikView User], 
+     [Exit Reason], 
+     date(date#(left([Session Start], 10))) AS Datum,
+     Year(date(left([Session Start], 10))) & num(Month(date(left([Session Start], 10))), '00') AS [År Månad],
+     MonthName([Session Start]) AS Månad,
+     time#(right([Session Start], 8)) AS Time, 
+     [Session Start] AS Session,   
+     [Session Duration], 
+     SubField([Session Duration], ':', 1) AS Timmar,
+     SubField([Session Duration], ':', 2) AS Minuter,
+     SubField([Session Duration], ':', 3) AS Sekunder,
+     3600 * SubField([Session Duration], ':', 1) + 60 * SubField([Session Duration], ':', 2) + SubField([Session Duration], ':', 3) AS [Total tid (sekunder)],
+     [CPU spent (s)], 
+     [Bytes Received], 
+     [Bytes Sent], 
+     Calls, 
+     Selections, 
+     UPPER([Authenticated user]) AS [Authenticated user],
+     UPPER(subfield([Authenticated user], '\', -1)) AS Användare, 
+     [Identifying user], 
+     [Client machine identification], 
+     [Serial number], 
+     [Client Type], 
+     if([Client Type] = 'Windows Exe', 'IE', 'Ajax') AS [Typ av klient],
+     [Client Build Version], 
+     [Secure Protocol], 
+     [Tunnel Protocol], 
+     [Server Port], 
+     [Client Address], 
+     [Client Port], 
+     [Cal Type] AS [Typ av licens], 
+     [Cal Usage Count]
+FROM [Sessions_*.log]
+(txt, utf8, embedded labels, delimiter is '\t', msq)
+WHERE len(trim([Authenticated user]))<>0;
+//WHERE Document <> 'c:\qlikview\in production\03_load\marknad.qvw' AND Document <> 'c:\qlikview\in production\03_load\qlikview';
+
+
+/*
+//Joina på fulla namn
+OLEDB CONNECT TO [Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=F0010;Data Source=ekonomi;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=RIKSQV01;Use Encryption for Data=False;Tag with column collation when possible=False];
+
+LEFT JOIN (Sessions)
+LOAD 
+	 UPPER(Usr) AS Användare,
+	 Nm AS Namn,
+	 EmpNo AS Anst.Nr
+;
+SQL SELECT *
+FROM F0010.dbo.Actor;
+	 */
+
+
+
+
+//
+//OUTER JOIN (Sessions)
+//LOAD Lower(subfield(subfield(Name, '/', -1), '.qvw', 1)) AS Applikation, 
+//	 if(Enabled = 'True', dual('Har schemalagd omladdning', 1), dual('Har ej schemalagd omladdning', 0)) AS [Har laddjobb]
+//FROM [C:\ProgramData\QlikTech\DistributionService\Workorder.xml] (XmlSimple, Table is [Workorder/Tasks/DistributeTask]);
+//
+//
+//
+//JOIN (Sessions)
+//LOAD Distinct
+//	 Applikation,
+//	 if(Isnull([Har laddjobb]), dual('Gamla applikationer', 0), dual('Aktuella applikationer', 1)) AS [Aktiv?]
+//Resident Sessions;
+///$tab Ikoner
+LET vMaxAnvändarID = Peek('AnvändarID');
+
+LOAD
+	IterNo() AS AnvändarID,
+	mod(IterNo(), 10) As _flag
+AutoGenerate 1
+While IterNo()<=$(vMaxAnvändarID);
+
+///$tab Licenssimulering
+Temp:)
+LOAD
+	num(min([Session])) as Start,
+	num(max([Session]+[Session Duration])) as End
+RESIDENT Sessions;
+
+//LET vStartTime = num(peek('Start',-1,'Temp'),'##############','.');
+//LET vEndTime = num(peek('End',-1,'Temp'),'##############','.');
+LET vStartTime = peek('Start',-1,'Temp');
+LET vEndTime = peek('End',-1,'Temp');
+
+TRACE '$(vStartTime) / $(vEndTime)';
+
+LET vTest = num#($(vStartTime)) < num#($(vEndTime);
+exit script when $(vTest);
+TRACE FEL!;
+EXIT SCRIPT;
+
+DROP TABLE Temp;
+
+SET i = 0;
+
+DO 
+
+	Time:
+	LOAD
+		$(vStartTime)+$(i)*$(vSimulationIntervalMinutes)/1440 as Timestamp		// 3-minutersintervall
+	AUTOGENERATE 1;
+	
+	LET vTimestamp = num($(vStartTime)+$(i)*$(vSimulationIntervalMinutes)/1440,'##############','.');
+	
+	TRACE '$(i) / $(vTimestamp)';
+	
+	LET i = $(i)+1;
+	
+	IF $(vTimestamp) > $(vEndTime) THEN 
+		EXIT DO
+	END IF
+	
+LOOP

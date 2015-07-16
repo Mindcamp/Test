@@ -1,0 +1,311 @@
+﻿<DocInternals>
+  <AlwaysLoose>
+    <bool>false</bool>
+    <bool>false</bool>
+    <bool>false</bool>
+    <bool>false</bool>
+    <bool>false</bool>
+    <bool>false</bool>
+  </AlwaysLoose>
+  <FieldSrcTables>
+    <String>6</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>7</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>8</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>9</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>10</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>11</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>12</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>13</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>14</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>15</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>16</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>17</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>18</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>19</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>20</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>21</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>22</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>23</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>24</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>25</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>26</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>27</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>28</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>29</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>30</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>31</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>32</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>33</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>34</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>35</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>36</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>37</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>38</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>39</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>40</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>41</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>42</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>43</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>44</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>45</String>
+    <String>1</String>
+    <String>Sessions</String>
+    <String>46</String>
+    <String>2</String>
+    <String>Sessions</String>
+    <String>AUTOGENERATE(1)</String>
+    <String>47</String>
+    <String>1</String>
+    <String>AUTOGENERATE(1)</String>
+    <String>48</String>
+    <String>1</String>
+    <String>Temp</String>
+    <String>49</String>
+    <String>1</String>
+    <String>Temp</String>
+  </FieldSrcTables>
+  <TableViewData></TableViewData>
+  <Bookmarks></Bookmarks>
+  <SavedByVersion>11.20.12742.0409</SavedByVersion>
+  <ForceBackEndMacroExecution>false</ForceBackEndMacroExecution>
+  <FieldTags>
+    <ScriptBased>
+      <FieldTagData>
+        <Tag>$key</Tag>
+        <FieldNames>
+          <String>$Field</String>
+          <String>$Table</String>
+          <String>AnvändarID</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$hidden</Tag>
+        <FieldNames>
+          <String>$Field</String>
+          <String>$Table</String>
+          <String>$Rows</String>
+          <String>$Fields</String>
+          <String>$FieldNo</String>
+          <String>$Info</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$system</Tag>
+        <FieldNames>
+          <String>$Field</String>
+          <String>$Table</String>
+          <String>$Rows</String>
+          <String>$Fields</String>
+          <String>$FieldNo</String>
+          <String>$Info</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$text</Tag>
+        <FieldNames>
+          <String>$Field</String>
+          <String>$Table</String>
+          <String>$Info</String>
+          <String>Exe Type</String>
+          <String>Exe Version</String>
+          <String>Document</String>
+          <String>Applikation</String>
+          <String>QlikView User</String>
+          <String>Exit Reason</String>
+          <String>Authenticated user</String>
+          <String>Användare</String>
+          <String>Identifying user</String>
+          <String>Client machine identification</String>
+          <String>Serial number</String>
+          <String>Client Type</String>
+          <String>Typ av klient</String>
+          <String>Secure Protocol</String>
+          <String>Tunnel Protocol</String>
+          <String>Client Address</String>
+          <String>Typ av licens</String>
+          <String>Cal Usage Count</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$ascii</Tag>
+        <FieldNames>
+          <String>$Table</String>
+          <String>$Info</String>
+          <String>Exe Type</String>
+          <String>Exe Version</String>
+          <String>Document</String>
+          <String>Applikation</String>
+          <String>QlikView User</String>
+          <String>Exit Reason</String>
+          <String>Serial number</String>
+          <String>Client Type</String>
+          <String>Typ av klient</String>
+          <String>Secure Protocol</String>
+          <String>Tunnel Protocol</String>
+          <String>Client Address</String>
+          <String>Typ av licens</String>
+          <String>Cal Usage Count</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$numeric</Tag>
+        <FieldNames>
+          <String>$Rows</String>
+          <String>$Fields</String>
+          <String>$FieldNo</String>
+          <String>SessionsId</String>
+          <String>Server Started</String>
+          <String>Sessions.Timestamp</String>
+          <String>Document Timestamp</String>
+          <String>Datum</String>
+          <String>År Månad</String>
+          <String>Månad</String>
+          <String>Time</String>
+          <String>Session</String>
+          <String>Session Duration</String>
+          <String>Timmar</String>
+          <String>Minuter</String>
+          <String>Sekunder</String>
+          <String>Total tid (sekunder)</String>
+          <String>CPU spent (s)</String>
+          <String>Bytes Received</String>
+          <String>Bytes Sent</String>
+          <String>Calls</String>
+          <String>Selections</String>
+          <String>Server Port</String>
+          <String>Client Port</String>
+          <String>AnvändarID</String>
+          <String>_flag</String>
+          <String>Start</String>
+          <String>End</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$integer</Tag>
+        <FieldNames>
+          <String>$Rows</String>
+          <String>$Fields</String>
+          <String>$FieldNo</String>
+          <String>SessionsId</String>
+          <String>Datum</String>
+          <String>År Månad</String>
+          <String>Månad</String>
+          <String>Timmar</String>
+          <String>Minuter</String>
+          <String>Sekunder</String>
+          <String>Total tid (sekunder)</String>
+          <String>Bytes Received</String>
+          <String>Bytes Sent</String>
+          <String>Calls</String>
+          <String>Selections</String>
+          <String>Server Port</String>
+          <String>Client Port</String>
+          <String>AnvändarID</String>
+          <String>_flag</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$timestamp</Tag>
+        <FieldNames>
+          <String>Server Started</String>
+          <String>Sessions.Timestamp</String>
+          <String>Datum</String>
+          <String>Månad</String>
+          <String>Session</String>
+          <String>Start</String>
+          <String>End</String>
+        </FieldNames>
+      </FieldTagData>
+      <FieldTagData>
+        <Tag>$date</Tag>
+        <FieldNames>
+          <String>Datum</String>
+          <String>Månad</String>
+        </FieldNames>
+      </FieldTagData>
+    </ScriptBased>
+    <Interactive></Interactive>
+  </FieldTags>
+  <FieldComments></FieldComments>
+  <TableComments></TableComments>
+  <CreatePrjFolder>false</CreatePrjFolder>
+  <LinkedTables></LinkedTables>
+</DocInternals>
